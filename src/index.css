@@ -1,0 +1,54 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-lexend: 'Lexend', sans-serif;
+  --font-manjari: 'Manjari', sans-serif;
+
+  --color-black: #383232;
+  --color-green-principal: #c4df04;
+  --color-green-dark: #849317;
+  --color-green-light: #dceb7f;
+  --color-white-principal: #f5f7fa;
+
+  /* /v2 redesign — floodlit-night-court palette (dark cinematic) */
+  --color-ink: #0a0d0a;
+  --color-ink-raise: #10140f;
+  --color-ink-line: #262b22;
+  --color-ink-mute: #8d9488;
+}
+
+body {
+  margin: 0;
+}
+
+/* /v2 only — film grain + status pulse, disabled under reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  .v2-grain {
+    animation: v2-grain 0.6s steps(2) infinite;
+  }
+  .v2-pulse {
+    animation: v2-pulse 2s ease-in-out infinite;
+  }
+}
+
+@keyframes v2-grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-2%, 1%);
+  }
+}
+
+@keyframes v2-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgb(196 223 4 / 0.5);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 0 6px rgb(196 223 4 / 0);
+  }
+}
